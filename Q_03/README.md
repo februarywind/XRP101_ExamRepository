@@ -21,4 +21,12 @@
 제시된 프로젝트에서 발생하는 `문제들을 모두 서술`하고 올바르게 동작하도록 `소스코드를 개선`하시오.
 
 ## 답안
-- 
+- ### Turret의 문제
+  - OnTriggerEnter 미동작 : OnTrigger 메세지 함수들은 두 컴포넌트 중 하나 이상의 콜라이더에 Is Tirgger가 활성화 및 Rigidbody 컴포넌트가 있어야 동작한다. 터렛의 콜라이더에 Rigidbody 컴포넌트를 추가하여 해결하였다.
+  - 범위 바깥으로 나갈 때 코루틴을 멈추는 기능이 없음 OnTriggerExit으로 코루틴을 중지하는 기능을 추가함
+- ### Bullet의 문제
+  - Bullet의 Rigidbody컴포넌트가 없어 오류가 발생 컴포넌트를 추가하여 해결하였다.
+  - Bullet이 Player와 Trigger시 TakeHit 함수를 실행하려고 하지만 콜라이더를 가지는 other는 플레이어의 body이므로 PlayerController를 가져오지 못함 GetComponentInParent로 body의 상위 오브젝트인 Player의 PlayerController를 가져오도록 변경하여 해결함
+  - 발사된 총알이 오브젝트 풀로 재생성 후 다시 발사될 때 힘이 초기화되지 않아서 의도치 않은 방향으로 발사된다. OnTaken에 Rigidbody의 velocity를 초기화하여 해결함
+- ### Player의 문제
+  - 체력이 0이 됐을 때 사운드 재생 후 곧바로 오브젝트를 비활성화 시키기 때문에 사운드 재생이 멈춘다. 우선 자식인 body를 비활성화 후 코루틴으로 사운드 재생이 끝난 이후 비활성화하도록 수정하였다. 사운드 매니저를 사용하여 소리를 컨트롤하는 편이 좋을것 같다.
