@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         _audio.Play();
+        transform.GetChild(0).gameObject.SetActive(false);
+        StartCoroutine(SoundPlayAfter());
+    }
+    IEnumerator SoundPlayAfter()
+    {
+        yield return new WaitForSeconds(2);
         gameObject.SetActive(false);
     }
 }

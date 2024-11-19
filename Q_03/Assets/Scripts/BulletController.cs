@@ -26,9 +26,7 @@ public class BulletController : PooledBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other
-                .GetComponent<PlayerController>()
-                .TakeHit(_damageValue);
+            other.GetComponentInParent<PlayerController>().TakeHit(_damageValue);
         }
     }
 
@@ -60,6 +58,7 @@ public class BulletController : PooledBehaviour
         if (!(t is Transform)) return;
         
         transform.LookAt((t as Transform));
+        transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Fire();
     }
 }
