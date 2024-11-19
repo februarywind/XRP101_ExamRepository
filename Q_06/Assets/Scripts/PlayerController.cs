@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            _gun.Fire(_muzzlePoint);    
+            _gun.Fire();    
         }
     }
 
