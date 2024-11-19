@@ -12,4 +12,7 @@
 제시된 소스코드에서 문제가 발생하는 `원인을 모두 서술`하시오.
 
 ## 답안
-- 
+- Awake에서 _cubeController를 사용하지만 해당 스크립트는 할당이 안 돼있어 오류가 발생함
+- Start에서 CreateCube 호출 후 SetCubePosition을 사용하면 오류는 해결됨
+## 수정
+- CubeManager에서 큐브의 위치를 바꾸는 것보다 CubeController에 함수를 수정하여 Vec3값을 입력받아 위치를 바꾸는 편이 역할 분담이 적절하고 향후 사용이 편할 것 같아 수정함
