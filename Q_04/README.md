@@ -20,6 +20,6 @@
 ## 답안
 - ### 오류 해결
   - StateAttack의 Attack 함수에서 damagable = col.GetComponent<IDamagable>();에 대한 예외 처리가 없어 오류가 발생함 damagable가 null 일 때 continue 하도록 변경
-  - StateAttack의 DelayRoutine에서 Exit을 직접 호출하여 상태 변경이 무한 반복됨 ChangeState을 사용하도록 변경함
+  - StateAttack의 DelayRoutine에서 Exit을 직접 호출하여 상태 변경이 동작하지 않음 ChangeState을 사용하도록 변경함
 - ### 코드 개선
   - StateAttack의 DelayRoutine에서 action이 사용되지 않으므로 제거함
